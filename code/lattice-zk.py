@@ -671,10 +671,10 @@ def test_abdlop_linear():
     """Call abdlop_linear with example parameters"""
 
     # Size parameters
-    m1 = 16    # size of s1
-    m2 = 47    # size of s2
-    ell = 8    # size of m
-    n = 4      # dimension of the Module-SIS problem
+    m1 = 8     # size of s1
+    m2 = 25    # size of s2
+    ell = 2    # size of m
+    n = 9      # dimension of the Module-SIS problem
     N = 1      # number of linear functions over Rq
     M = 1      # number of linear functions over Zq
     lambd = M  # number of random challenges for the M linear functions (must be M)
@@ -905,9 +905,9 @@ def test_abdlop_multiple_quadratic():
 
     # Size parameters
     m1 = 8     # size of s1
-    m2 = 8     # size of s2
-    ell = 8    # size of m
-    n = 4      # dimension of the Module-SIS problem
+    m2 = 25    # size of s2
+    ell = 2    # size of m
+    n = 9      # dimension of the Module-SIS problem
     N = 2      # number of quadratic equations
 
     # Algorithm parameters
@@ -1847,19 +1847,19 @@ if __name__=='__main__':
         print("Running Benchmarks")
         print("this will take a few minutes")
 
-        time_commit = benchmark_protocol(test_abdlop_commit, 10)
+        time_commit = benchmark_protocol(test_abdlop_commit, 100)
         print(f"Prove ABDLOP opening and 1 lin. rel. over Rq: {time_commit:.3f}s")
 
-        time_linear = benchmark_protocol(test_abdlop_linear, 10)
+        time_linear = benchmark_protocol(test_abdlop_linear, 100)
         print(f"Prove ABDLOP opening, 1 lin. rel. over Rq and 1 lin. rel. over Zq: {time_linear:.3f}s")
 
-        time_quadratic = benchmark_protocol(test_abdlop_single_quadratic, 10)
+        time_quadratic = benchmark_protocol(test_abdlop_single_quadratic, 100)
         print(f"Prove ABDLOP opening and 1 quad. rel. over Rq: {time_quadratic:.3f}s")
 
-        time_quadratic_poly = benchmark_protocol(test_abdlop_quadratic_poly, 10)
+        time_quadratic_poly = benchmark_protocol(test_abdlop_quadratic_poly, 100)
         print(f"Prove ABDLOP opening, 1 quad. rel. over Rq and 1 quad. rel. over Zq: {time_quadratic_poly:.3f}s")
 
-        time_mlwe = benchmark_protocol(test_abdlop_mlwe, 3)
+        time_mlwe = benchmark_protocol(test_abdlop_mlwe, 10)
         print(f"Prove Module-LWE secret: {time_mlwe:.3f}s")
 
     else:
